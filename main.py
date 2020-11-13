@@ -15,9 +15,16 @@ def factor_finder(number):
     except ValueError:
       number = input("I need a valid number, please:\t") 
       is_integer = False
+  number_even= number %2
   sqrt_num = math.sqrt(number)
   divisor = math.floor(sqrt_num)
   end_root= divisor
+  if number_even==0:
+    count_by =1
+  if number_even ==1:
+    count_by =2
+  else: 
+    count_by= 1
   while divisor>0: 
     upper_factor = number/divisor
     if upper_factor.is_integer() is True:
@@ -26,7 +33,7 @@ def factor_finder(number):
       count_factors += 1
     else:
       factor_list += ""
-    divisor -= 1
+    divisor -= count_by
   return factor_list, end_root, count_factors
 
 def main(): 
@@ -46,7 +53,7 @@ def main():
     if count_factors== 1:
       print(f"\n{x} is a prime number!")
     print(F"There are {count_factors} factors! Here they are:\n{factors}")
-    print(f"It took {total_time} seconds to process {end_root} numbers!\nThats {speed} words per second!")
+    print(f"It took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!")
     restart= input("Hit enter to restart, or enter any key to quit ")
     count +=1 
   print("I hope you enjoyed this program, have a good day!")
