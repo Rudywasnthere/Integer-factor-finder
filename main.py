@@ -1,8 +1,7 @@
 ##Rudy Garcia
 import math, sys
+import time, sys
 
-restart = ""
-count = 0
 print("Hello, this is a program for finding the factors for any postive numput you input")
 
 def factor_finder(number):
@@ -30,17 +29,26 @@ def factor_finder(number):
     divisor -= 1
   return factor_list, end_root, count_factors
 
-while restart == "":
-  if count == 0:
-    x = input("To start, what is the number you want to factor:\t")
-  if count != 0: 
-    x= input("What number do you want to factor:\t")
-  factors, end_root, count_factors = factor_finder(x)
-  print(f"I had to search through {end_root} numbers!")
-  print("")
-  print(F"There are {count_factors} factors! Here they are:\n{factors}")
-  restart= input("Hit enter to restart, or enter any key to quit ")
-  count +=1 
+def main(): 
+  restart=""
+  count = 0
+  while restart =="":
+    if count == 0:
+      x = input("To start, what is the number you want to factor:\t")
+    if count != 0: 
+      x= input("What number do you want to factor:\t")
+    t_1= time.process_time()
+    factors, end_root, count_factors = factor_finder(x)
+    t_2= time.process_time()
+    total_time= t_2 - t_1
+    speed_1= float(end_root/total_time)
+    speed = round(speed_1,10)
+    if count_factors== 1:
+      print(f"\n{x} is a prime number!")
+    print(F"There are {count_factors} factors! Here they are:\n{factors}")
+    print(f"It took {total_time} seconds to process {end_root} numbers!\nThats {speed} words per second!")
+    restart= input("Hit enter to restart, or enter any key to quit ")
+    count +=1 
+  print("I hope you enjoyed this program, have a good day!")
 
-
-
+main()
