@@ -52,6 +52,7 @@ def factor_finder(number, count_by, divisor):
   return factor_list, count_factors, total_time, verb, factor_ending, third_part
 
 def main(count): 
+  final_output= ""
   if count == 0:
     x = input("To start, what is the number you want to factor:\t")
   if count != 0: 
@@ -62,9 +63,9 @@ def main(count):
   speed_1= float(end_root/total_time)
   speed = round(speed_1,10)
   if count_factors== 1:
-    return f"\n{x} is a prime number!"
-  return F"There {verb} {count_factors} factor{factor_ending}! Here {third_part}:\n{factors}\nIt took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!"
-  count +=1 
+    final_output += f"\n{x} is a prime number!\n"
+  final_output += F"There {verb} {count_factors} factor{factor_ending}! Here {third_part}:\n{factors}\nIt took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!"
+  return final_output
 
 restart =""
 while restart =="":
