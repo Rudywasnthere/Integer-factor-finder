@@ -2,7 +2,8 @@
 import math, sys
 import time, sys
 
-print("Hello, this is a program for finding the factors for any postive numput you input")
+print("Hello, this is a program for finding the factors for any postive number you input")
+
 def correct_input(x):
   is_integer = False
   while is_integer is False:
@@ -50,25 +51,26 @@ def factor_finder(number, count_by, divisor):
     verb, factor_ending, third_part= "are", "s", "they are"
   return factor_list, count_factors, total_time, verb, factor_ending, third_part
 
-def main(): 
-  restart=""
-  count = 0
-  while restart =="":
-    if count == 0:
-      x = input("To start, what is the number you want to factor:\t")
-    if count != 0: 
-      x= input("What number do you want to factor:\t")
-    x= correct_input(x)
-    count_by, divisor, end_root= initials(x)
-    factors, count_factors, total_time, verb, factor_ending, third_part = factor_finder(x, count_by, divisor)
-    speed_1= float(end_root/total_time)
-    speed = round(speed_1,10)
-    if count_factors== 1:
-      print(f"\n{x} is a prime number!")
-    print(F"There {verb} {count_factors} factor{factor_ending}! Here {third_part}:\n{factors}")
-    print(f"It took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!")
-    restart= input("Hit enter to restart, or enter any key to quit ")
-    count +=1 
-  print("I hope you enjoyed this program, have a good day!")
+def main(count): 
+  if count == 0:
+    x = input("To start, what is the number you want to factor:\t")
+  if count != 0: 
+    x= input("What number do you want to factor:\t")
+  x= correct_input(x)
+  count_by, divisor, end_root= initials(x)
+  factors, count_factors, total_time, verb, factor_ending, third_part = factor_finder(x, count_by, divisor)
+  speed_1= float(end_root/total_time)
+  speed = round(speed_1,10)
+  if count_factors== 1:
+    print(f"\n{x} is a prime number!")
+  print(F"There {verb} {count_factors} factor{factor_ending}! Here {third_part}:\n{factors}")
+  print(f"It took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!")
+  count +=1 
 
-main()
+restart =""
+while restart =="":
+  count = 0
+  main(count)
+  restart= input("Hit enter to restart, or enter any key to quit ")
+  count +=1 
+print("I hope you enjoyed this program, have a good day!")
