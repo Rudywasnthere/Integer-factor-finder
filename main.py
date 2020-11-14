@@ -62,15 +62,14 @@ def main(count):
   speed_1= float(end_root/total_time)
   speed = round(speed_1,10)
   if count_factors== 1:
-    print(f"\n{x} is a prime number!")
-  print(F"There {verb} {count_factors} factor{factor_ending}! Here {third_part}:\n{factors}")
-  print(f"It took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!")
+    return f"\n{x} is a prime number!"
+  return F"There {verb} {count_factors} factor{factor_ending}! Here {third_part}:\n{factors}\nIt took {total_time} seconds to process {end_root} numbers!\nThats {speed} numbers per second!"
   count +=1 
 
 restart =""
 while restart =="":
   count = 0
-  main(count)
+  print(main(count))
   restart= input("Hit enter to restart, or enter any key to quit ")
   count +=1 
 print("I hope you enjoyed this program, have a good day!")
